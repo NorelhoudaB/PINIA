@@ -8,10 +8,17 @@
 
 
 <div class="task-list">
+<p>all tasks</p>
+    <div v-for="task in TaskStore.tasks" :key="task.id" class="task-item">
+      <TaskDetails :task="task" />
+    </div>
 
-      <div v-for="task in TaskStore.tasks " :key="task.id" class="task-item">
-     <TaskDetails :task="task" />
-      </div>
+</div>
+<div class="task-list">
+<p>completed tasks</p>
+    <div v-for="task in TaskStore.completed" :key="task.id" class="task-item">
+      <TaskDetails :task="task" />
+    </div>
 
 </div>
   </main>
@@ -21,9 +28,9 @@
 <script>
 import TaskDetails from '@/components/TaskDetails.vue'
 
-import {useTaskStore} from './stores/TaskStore'
+import { useTaskStore } from '@/stores/TaskStore'
 export default {
-componenets: {
+components: {
     TaskDetails
 },
 setup(){
