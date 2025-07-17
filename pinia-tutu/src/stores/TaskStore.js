@@ -9,8 +9,9 @@ export const useTaskStore = defineStore("TaskStore", {
         ]
     }),
     getters:{
-      completed() {
+    completed() {
         return this.tasks.filter(t => t.Completed)
+        
     },
     completedcount() {
         return this.tasks.reduce((p, c) => {
@@ -25,7 +26,17 @@ export const useTaskStore = defineStore("TaskStore", {
     },    actions: {
         addTask(task) {
             this.tasks.push(task)
-    }
+    },deleteTask(id) {
+        this.tasks=this.tasks.filter(t =>{
+            
+            return t.id !== id})
+},
+toggleCompleted(id) {
+const task =this.tasks.find(t => t.id === id)
+task.Completed = !task.Completed
+
 }
+    }
+    
 });
                                              
