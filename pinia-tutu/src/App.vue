@@ -18,6 +18,9 @@
     <button @click="filter = 'completed'">Completed</button>
 
 </nav>
+
+<!--lloading-->
+<div class="loading" v-if="TaskStore.isLoading">Loading tasks </div>
 <!-- Task list -->
 <div class="task-list" v-if="filter === 'all'">
 <p>YOU HAVE {{ TaskStore.totalcount }} TASKS</p>
@@ -50,6 +53,8 @@ components: {
 setup(){
 
   const TaskStore = useTaskStore()
+
+  TaskStore.getTasks()
   const filter = ref('all')
   return {
     TaskStore,
