@@ -5,13 +5,27 @@ export const useTaskStore = defineStore("TaskStore", {
         tasks:[
 
             { id: 1, title: "buy some milk", Completed: false },
-            { id: 2, title: "play gloomhaven", Completed : false },
+            { id: 2, title: "play gloomhaven", Completed : true },
         ]
     }),
     getters:{
       completed() {
         return this.tasks.filter(t => t.Completed)
-    }}
+    },
+    completedcount() {
+        return this.tasks.reduce((p, c) => {
+            return c.Completed ? p + 1 : p
+        }, 0)
+    },
+    totalcount:(state) => {
+    return state.tasks.length
+    }
+
+
+    },    actions: {
+        addTask(task) {
+            this.tasks.push(task)
+    }
 }
-) 
+});
                                              
