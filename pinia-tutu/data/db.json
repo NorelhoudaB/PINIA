@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "3",
-      "title": "wash dishes",
+      "title": "do laundry",
       "completed": true
     },
     {
@@ -11,23 +11,13 @@
       "completed": false
     },
     {
-      "id": "8552",
-      "title": "do laundry",
-      "completed": true
-    },
-    {
       "id": "9998",
       "title": "do skincare",
       "completed": false
     },
     {
-      "id": "5520",
-      "title": "make new painting",
-      "completed": false
-    },
-    {
       "id": "8487",
-      "title": "post and update on twitter ",
+      "title": "make new painting",
       "completed": true
     },
     {
