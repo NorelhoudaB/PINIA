@@ -1,29 +1,24 @@
 {
   "tasks": [
     {
-      "id": "3",
-      "title": "do laundry",
-      "completed": true
-    },
-    {
       "id": "22",
       "title": "clean the kitchen",
-      "completed": false
+      "completed": true
     },
     {
       "id": "9998",
       "title": "do skincare",
-      "completed": false
+      "completed": true
     },
     {
       "id": "8487",
       "title": "make new painting",
-      "completed": true
+      "completed": false
     },
     {
       "id": "1574",
       "title": "watch the mentalist ep 17",
-      "completed": false
+      "completed": true
     },
     {
       "id": 1588,

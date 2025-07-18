@@ -20,22 +20,25 @@
 </nav>
 
 <!--lloading-->
-<div class="loading" v-if="TaskStore.isLoading">Loading tasks </div>
+<div class="loading" v-if="isLoading">Loading tasks </div>
 <!-- Task list -->
 <div class="task-list" v-if="filter === 'all'">
-<p>YOU HAVE {{ TaskStore.totalcount }} TASKS</p>
-    <div v-for="task in TaskStore.tasks" :key="task.id" class="task-item">
+<p>YOU HAVE {{totalcount }} TASKS</p>
+    <div v-for="task in tasks" :key="task.id" class="task-item">
       <TaskDetails :task="task" />
     </div>
 
 </div>
 <div class="task-list" v-if="filter === 'completed'">
-<p>YOU HAVE {{ TaskStore.completedcount }} TASK DONE </p>
-    <div v-for="task in TaskStore.completed" :key="task.id" class="task-item">
+<p>YOU HAVE {{ completedcount }} TASK DONE </p>
+    <div v-for="task in completed" :key="task.id" class="task-item">
       <TaskDetails :task="task" />
     </div>
 
 </div>
+<nav class="filter">
+  <button   @click="TaskStore.$reset">reset state</button></nav>
+
   </main>
    
 </template>
@@ -45,6 +48,7 @@ import TaskDetails from '@/components/TaskDetails.vue'
 import {ref }from 'vue';
 import { useTaskStore } from '@/stores/TaskStore'
 import TaskForm from './components/TaskForm.vue';
+import { storeToRefs } from 'pinia';
 export default {
 components: {
     TaskDetails,
@@ -54,11 +58,13 @@ setup(){
 
   const TaskStore = useTaskStore()
 
+  const{tasks, isLoading, completed, totalcount,completedcount}=storeToRefs(TaskStore)
+
   TaskStore.getTasks()
   const filter = ref('all')
   return {
     TaskStore,
-    filter
+    filter,tasks, isLoading, completed, totalcount,completedcount
   }
 }
 }
