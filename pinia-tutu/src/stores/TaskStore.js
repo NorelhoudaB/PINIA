@@ -63,7 +63,7 @@ actions: {
             }
         })
         if (res.err) {
-            console.error('Error toggling completed:', res.err)
+            console.error('Error toggling task:', res.err)
         }
     }
 }
