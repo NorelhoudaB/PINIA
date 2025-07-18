@@ -3,7 +3,7 @@
   <h3>{{ task.title }}</h3>
   <div class="icons">
 <i @click="TaskStore.deleteTask(task.id)" class="material-icons">delete</i>
-<i @click="TaskStore.toggleCompleted(task.id)" class="material-icons" :class="{active: task.Completed}">done</i>
+<i @click="TaskStore.togglecompleted(task.id)" class="material-icons" :class="{active: task.completed}">done</i>
 
   </div>
   </div>

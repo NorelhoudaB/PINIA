@@ -7,12 +7,12 @@ export const useTaskStore = defineStore("TaskStore", {
     }),
     getters:{
     completed() {
-        return this.tasks.filter(t => t.Completed)
+        return this.tasks.filter(t => t.completed)
         
     },
     completedcount() {
         return this.tasks.reduce((p, c) => {
-            return c.Completed ? p + 1 : p
+            return c.completed ? p + 1 : p
         }, 0)
     },
     totalcount:(state) => {
@@ -52,18 +52,18 @@ actions: {
             console.error('Error deleting task:', res.err)
         }
     },
-    async toggleCompleted(id) {
+    async togglecompleted(id) {
         const task = this.tasks.find(t => t.id === id)
-        task.Completed = !task.Completed
+        task.completed = !task.completed
         const res = await fetch('http://localhost:3000/tasks/' + id, {
             method: 'PATCH',
-            body: JSON.stringify({ Completed: task.Completed }),
+            body: JSON.stringify({ completed: task.completed }),
             headers: {
                 'Content-Type': 'application/json'
             }
         })
-        if (!res.ok) {
-            console.error('Error toggling completed:', await res.text())
+        if (res.err) {
+            console.error('Error toggling completed:', res.err)
         }
     }
 }

@@ -15,7 +15,7 @@
 <nav class="filter">
   
     <button @click="filter = 'all'" >All</button>
-    <button @click="filter = 'completed'">Completed</button>
+    <button @click="filter = 'completed'">completed</button>
 
 </nav>
 
